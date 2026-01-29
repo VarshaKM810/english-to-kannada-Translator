@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.translator-box {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Translator Content */
+.translator-content {
+    padding: 40px 30px;
+}
+
+/* Language Selector */
+.language-selector {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.lang-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+.lang-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.lang-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.lang-group select:hover {
+    border-color: #667eea;
+}
+
+.lang-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.swap-button {
+    padding: 10px 15px;
+    background: #f0f0f0;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    min-width: 50px;
+}
+
+.swap-button:hover {
+    background: #667eea;
+    border-color: #667eea;
+    color: white;
+    transform: rotate(180deg);
+}
+
+/* Text Areas */
+.text-areas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+}
+
+textarea:hover {
+    border-color: #667eea;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+textarea:read-only {
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.char-count {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.copy-button {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    padding: 8px 12px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.copy-button:hover {
+    background: #764ba2;
+    transform: scale(1.05);
+}
+
+.copy-button:active {
+    transform: scale(0.95);
+}
+
+/* Buttons */
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 40px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-translate {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    min-width: 200px;
+}
+
+.btn-translate:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-translate:active {
+    transform: translateY(-1px);
+}
+
+.btn-clear {
+    background: #f0f0f0;
+    color: #333;
+    min-width: 150px;
+}
+
+.btn-clear:hover {
+    background: #e0e0e0;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status Message */
+.status-message {
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    min-height: 20px;
+    font-size: 0.95rem;
+    display: none;
+}
+
+.status-message.show {
+    display: block;
+}
+
+.status-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-message.loading {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Footer */
+footer {
+    background: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #e0e0e0;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .translator-content {
+        padding: 25px 15px;
+    }
+
+    .language-selector {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .lang-group {
+        width: 100%;
+    }
+
+    .swap-button {
+        width: 100%;
+    }
+
+    .text-areas {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Loading Animation */
+.loading {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

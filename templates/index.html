@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English to Kannada Translator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="translator-box">
+            <header>
+                <h1>🌐 Language Translator</h1>
+                <p>Translate English to Kannada and other Indian languages</p>
+            </header>
+
+            <div class="translator-content">
+                <!-- Language Selection -->
+                <div class="language-selector">
+                    <div class="lang-group">
+                        <label for="source-language">From:</label>
+                        <select id="source-language">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="kn">Kannada</option>
+                        </select>
+                    </div>
+
+                    <button class="swap-button" onclick="swapLanguages()" title="Swap languages">
+                        ⇄
+                    </button>
+
+                    <div class="lang-group">
+                        <label for="target-language">To:</label>
+                        <select id="target-language">
+                            <option value="kn" selected>Kannada</option>
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="te">Telugu</option>
+                            <option value="ta">Tamil</option>
+                            <option value="ml">Malayalam</option>
+                            <option value="mr">Marathi</option>
+                            <option value="gu">Gujarati</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Text Input Areas -->
+                <div class="text-areas">
+                    <div class="input-group">
+                        <textarea 
+                            id="input-text" 
+                            placeholder="Enter text to translate..." 
+                            rows="8"
+                            maxlength="5000"
+                        ></textarea>
+                        <div class="char-count">
+                            <span id="char-count">0</span>/5000
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <textarea 
+                            id="output-text" 
+                            placeholder="Translation will appear here..." 
+                            rows="8"
+                            readonly
+                        ></textarea>
+                        <button class="copy-button" onclick="copyToClipboard()">
+                            📋 Copy
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+                    <button class="btn btn-translate" onclick="translateText()">
+                        🔄 Translate
+                    </button>
+                    <button class="btn btn-clear" onclick="clearText()">
+                        🗑️ Clear
+                    </button>
+                </div>
+
+                <!-- Status Message -->
+                <div id="status-message" class="status-message"></div>
+            </div>
+
+            <!-- Footer -->
+            <footer>
+                <p>Built with Flask & Google Translate API</p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
