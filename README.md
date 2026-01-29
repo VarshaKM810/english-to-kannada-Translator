@@ -202,5 +202,5 @@ Created as an English to Kannada translator project for language learning and as
 - [ ] Context-aware translations
 
 ---
-
+https://english-to-kannada-translator-8-dig8.onrender.com
 **Happy Translating!** 🎉
